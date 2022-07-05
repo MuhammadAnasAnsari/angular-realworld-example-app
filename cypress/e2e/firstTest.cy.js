@@ -162,12 +162,7 @@ describe("Test with backend", () =>{
           }).its('body').then( body => {
             //   console.log(body)
               expect(body.articles[0].title).not.to.equal('Request from APIs')
-
           })
-
-
       })
-
-
     })
 })
