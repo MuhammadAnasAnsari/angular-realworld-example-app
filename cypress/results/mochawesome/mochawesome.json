@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 2,
-    "tests": 7,
-    "passes": 4,
+    "suites": 1,
+    "tests": 6,
+    "passes": 3,
     "pending": 0,
     "failures": 3,
     "start": "2022-07-05T07:16:18.652Z",
-    "end": "2022-07-05T07:16:51.104Z",
-    "duration": 29960,
-    "testsRegistered": 7,
-    "passPercent": 57.142857142857146,
+    "end": "2022-07-05T07:16:45.840Z",
+    "duration": 27188,
+    "testsRegistered": 6,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -17,64 +17,6 @@
     "hasSkipped": false
   },
   "results": [
-    {
-      "uuid": "36d7d803-58b6-48bf-8d3e-c51b6f571407",
-      "title": "",
-      "fullFile": "cypress\\e2e\\secondTest.cy.js",
-      "file": "cypress\\e2e\\secondTest.cy.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [],
-      "suites": [
-        {
-          "uuid": "231714fc-51e5-45f9-a146-2afcd6dc9dc8",
-          "title": "Test log out",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Verify user can logout sucessfully",
-              "fullTitle": "Test log out Verify user can logout sucessfully",
-              "timedOut": null,
-              "duration": 3030,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.contains('Settings').click();\ncy.contains(' Or click here to logout. ').click();\ncy.get('.navbar-nav').should('contain', ' Sign up');",
-              "err": {},
-              "uuid": "d663d19d-75ae-4f42-9713-ef662dbaa5ce",
-              "parentUUID": "231714fc-51e5-45f9-a146-2afcd6dc9dc8",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "d663d19d-75ae-4f42-9713-ef662dbaa5ce"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 3030,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        }
-      ],
-      "passes": [],
-      "failures": [],
-      "pending": [],
-      "skipped": [],
-      "duration": 0,
-      "root": true,
-      "rootEmpty": true,
-      "_timeout": 2000
-    },
     {
       "uuid": "c057cedc-dc5e-4c5f-ba3f-92a96fe8c080",
       "title": "",
