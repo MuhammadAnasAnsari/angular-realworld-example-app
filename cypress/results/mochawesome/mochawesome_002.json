@@ -1,0 +1,222 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 1,
+    "pending": 0,
+    "failures": 5,
+    "start": "2022-07-05T05:21:44.830Z",
+    "end": "2022-07-05T05:23:04.640Z",
+    "duration": 79810,
+    "testsRegistered": 6,
+    "passPercent": 16.666666666666664,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ed6fa71-a8cc-4e20-9815-91eb8362271f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\firstTest.cy.js",
+      "file": "cypress\\e2e\\firstTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+          "title": "Test with backend",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify correct request and response",
+              "fullTitle": "Test with backend Verify correct request and response",
+              "timedOut": null,
+              "duration": 29095,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// to it.skip() this test\n// striked because they will be deprecated in future but working for now\n// cy.server() // to create the cypress server\n// cy.route('POST', '**/articles').as('postArticles') // route() for giving method, end point & as() for alias \ncy.intercept('POST', '**/articles').as('postArticles');\ncy.contains('New Article').click();\ncy.get('[formcontrolname=\"title\"]').type('This is title');\ncy.get('[formcontrolname=\"description\"]').type('this is description');\ncy.get('[formcontrolname=\"body\"]').type('this is a body of the Article'); // cy.get('[placeholder=\"Enter tags\"]').type('artcl_003')\ncy.get('button').contains('Publish Article').click({\n  force: true\n});\ncy.wait('@postArticles'); // @ used with alias to wait for the request\ncy.get('@postArticles').then(xhr => {\n  console.log(xhr); // to see the request in console log\n  expect(xhr.response.statusCode).to.equal(200); // Assertions\n  expect(xhr.request.body.article.body).to.equal('this is a body of the Article');\n  expect(xhr.response.body.article.description).to.equal('this is description');\n});",
+              "err": {
+                "message": "AssertionError: expected 307 to equal 200",
+                "estack": "AssertionError: expected 307 to equal 200\n    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\\e2e\\firstTest.cy.js:136:42)",
+                "diff": "- 307\n+ 200\n"
+              },
+              "uuid": "cc8e2a54-500a-490b-96dd-47ddb6e402ea",
+              "parentUUID": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Intercepting and modifying the request and response",
+              "fullTitle": "Test with backend Intercepting and modifying the request and response",
+              "timedOut": null,
+              "duration": 9839,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// to it.skip() this test\n// striked because they will be deprecated in future but working for now\n// cy.server() // to create the cypress server\n// cy.route('POST', '**/articles').as('postArticles') // route() for giving method, end point & as() for alias \n// cy.intercept('POST', '**/articles', (req) =>{\n//     req.body.article.description = \"This is description 2\" // to modify the request\n// }).as('postArticles')\ncy.intercept('POST', '**/articles', req => {\n  req.reply(res => {\n    expect(res.body.article.description).to.equal('This is description');\n    res.body.article.description = \"This is description 2\";\n  });\n}).as('postArticles');\ncy.contains('New Article').click();\ncy.get('[formcontrolname=\"title\"]').type('446Deweerrs');\ncy.get('[formcontrolname=\"description\"]').type('This is description');\ncy.get('[formcontrolname=\"body\"]').type('This is a body of the Article'); // cy.get('[placeholder=\"Enter tags\"]').type('artcl_003')\ncy.contains('Publish Article').click();\ncy.wait('@postArticles'); // @ used with alias to wait for the request\ncy.get('@postArticles').then(fetch => {\n  // console.log(JSON.parse(JSON.stringify(xhr.response)))  // to see the request in console log\n  console.log(fetch.response);\n  expect(fetch.response.statusCode).to.equal(307); // Assertions\n  expect(fetch.response.body.article.body).to.equal('This is a body of the Article'); // console.log(xhr.request.body.article.description)\n  expect(fetch.response.body.article.description).to.equal('This is description 2');\n});",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'description')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'description')\n    at eval (http://localhost:4200/__cypress/tests?p=cypress\\e2e\\firstTest.cy.js:152:33)",
+                "diff": null
+              },
+              "uuid": "90bcbe4e-a774-422b-8b14-b58d71046f20",
+              "parentUUID": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should gave tags with routing object",
+              "fullTitle": "Test with backend should gave tags with routing object",
+              "timedOut": null,
+              "duration": 8778,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//it.only() to run only this test\ncy.get('.tag-list').should('contain', 'cypress').and('contain', 'automation').and('contain', 'testing');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it.\n    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\\e2e\\firstTest.cy.js:176:25)",
+                "diff": null
+              },
+              "uuid": "fbdadcca-2ef5-43be-8ccb-e070ba51c60a",
+              "parentUUID": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should gave tags with routing object",
+              "fullTitle": "Test with backend should gave tags with routing object",
+              "timedOut": null,
+              "duration": 6948,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//it.only() to run only this test\ncy.get('.tag-list').should('contain', 'cypress').and('contain', 'automation').and('contain', 'testing');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it.\n    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\\e2e\\firstTest.cy.js:180:25)",
+                "diff": null
+              },
+              "uuid": "7c448569-b600-426a-9035-05af120173ce",
+              "parentUUID": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the global feed likes count",
+              "fullTitle": "Test with backend Verify the global feed likes count",
+              "timedOut": null,
+              "duration": 12683,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Feed tab GET Request fixture call URL without json file small Response directly passing as param\n// cy.route('GET', '**/articles/feed*', '{\"articles\":[],\"articlesCount\":0}') \ncy.intercept('GET', '**/articles/feed*', {\n  \"articles\": [],\n  \"articlesCount\": 0\n}); // Global Feeb tab GET request fixture call URL through json file from fixtures json\n// cy.route('GET', '**/articles*', 'fixture:articles.json') \ncy.intercept('GET', '**/articles*', {\n  fixture: 'articles.json'\n}); // Verify the Global Feed tab fixture articles favorite count\ncy.contains('Global Feed').click();\ncy.get('app-article-list button').then(listOfButtons => {\n  expect(listOfButtons[0]).to.contain(1);\n  expect(listOfButtons[1]).to.contain(5);\n}); // fixture() method to read the fixture files\ncy.fixture('articles').then(file => {\n  const articlelink = file.articles[1].slug; // arcticle name/link from the fixture mocked responsed json file\n  // cy.route('POST', '**/articles/'+articlelink+'/favorite', file) // concatenate the POST method request URL w.r.t to our fixture file\n  cy.intercept('POST', '**/articles/' + articlelink + '/favorite', file);\n});\ncy.get('app-article-list button').eq(1) // for second article which on 1 index\n.click().should('contain', '4'); //assertion fav. icon after click on fav. icon",
+              "err": {},
+              "uuid": "6445bdc8-584c-4fa0-87ff-46da73d91bd5",
+              "parentUUID": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "To delete a new article in global feed",
+              "fullTitle": "Test with backend To delete a new article in global feed",
+              "timedOut": null,
+              "duration": 12053,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const bodyRequest = {\n  \"article\": {\n    \"tagList\": [],\n    \"title\": \"Request from APIs\",\n    \"description\": \"API testing is easy\",\n    \"body\": \"Angular is cool\"\n  }\n}; // 1 Call login API\n//   cy.request('POST', Cypress.env('apiUrl')+'/api/users/login', UserCredentials)\n//   .its('body').then(body =>{\n//       const token = body.user.token\ncy.get('@token').then(token => {\n  // token getting from commands.js\n  // 2 get token from login API & then call articles API with authorization\n  cy.request({\n    url: Cypress.env('apiUrl') + '/api/articles/',\n    //cocatenate the apiUrl from env variable\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    // \"Token\" text concatenation with token value from variable\n    method: 'POST',\n    body: bodyRequest\n  }).then(response => {\n    expect(response.status).to.equal(200); // Assertion for 200 response match\n  }); // UI actions\n  cy.wait(500);\n  cy.contains(' Global Feed ').click();\n  cy.get('.article-preview').first().click();\n  cy.get('.article-actions').contains(' Delete Article ').click(); // get Articles objects listing after deletion of first & assertion\n  cy.wait(500);\n  cy.request({\n    url: Cypress.env('apiUrl') + '/api/articles?limit=10&offset=0',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'GET'\n  }).its('body').then(body => {\n    //   console.log(body)\n    expect(body.articles[0].title).not.to.equal('Request from APIs');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.article-preview`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.article-preview`, but never found it.\n    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\\e2e\\firstTest.cy.js:241:10)",
+                "diff": null
+              },
+              "uuid": "65712b3b-0981-49f3-83ef-39b0ccd3b2c6",
+              "parentUUID": "e7140a60-a0b6-4455-bb4d-d7e1abcd8168",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6445bdc8-584c-4fa0-87ff-46da73d91bd5"
+          ],
+          "failures": [
+            "cc8e2a54-500a-490b-96dd-47ddb6e402ea",
+            "90bcbe4e-a774-422b-8b14-b58d71046f20",
+            "fbdadcca-2ef5-43be-8ccb-e070ba51c60a",
+            "7c448569-b600-426a-9035-05af120173ce",
+            "65712b3b-0981-49f3-83ef-39b0ccd3b2c6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 79396,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

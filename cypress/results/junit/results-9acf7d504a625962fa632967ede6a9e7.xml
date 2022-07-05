@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="79.8100" tests="6" failures="5">
+  <testsuite name="Root Suite" timestamp="2022-07-05T05:21:44" tests="0" file="cypress\e2e\firstTest.cy.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Test with backend" timestamp="2022-07-05T05:21:44" tests="6" time="79.7620" failures="5">
+    <testcase name="Test with backend Verify correct request and response" time="0.0000" classname="Verify correct request and response">
+      <failure message="expected 307 to equal 200" type="AssertionError"><![CDATA[AssertionError: expected 307 to equal 200
+    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\e2e\firstTest.cy.js:136:42)]]></failure>
+    </testcase>
+    <testcase name="Test with backend Intercepting and modifying the request and response" time="0.0000" classname="Intercepting and modifying the request and response">
+      <failure message="Cannot read properties of undefined (reading &apos;description&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of undefined (reading 'description')
+    at eval (http://localhost:4200/__cypress/tests?p=cypress\e2e\firstTest.cy.js:152:33)]]></failure>
+    </testcase>
+    <testcase name="Test with backend should gave tags with routing object" time="0.0000" classname="should gave tags with routing object">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it.
+    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\e2e\firstTest.cy.js:176:25)]]></failure>
+    </testcase>
+    <testcase name="Test with backend should gave tags with routing object" time="0.0000" classname="should gave tags with routing object">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tag-list`, but never found it.
+    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\e2e\firstTest.cy.js:180:25)]]></failure>
+    </testcase>
+    <testcase name="Test with backend Verify the global feed likes count" time="12.6830" classname="Verify the global feed likes count">
+    </testcase>
+    <testcase name="Test with backend To delete a new article in global feed" time="0.0000" classname="To delete a new article in global feed">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `.article-preview`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `.article-preview`, but never found it.
+    at Context.eval (http://localhost:4200/__cypress/tests?p=cypress\e2e\firstTest.cy.js:241:10)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

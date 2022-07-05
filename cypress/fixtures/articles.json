@@ -1,0 +1,39 @@
+{
+    "articles": [
+        {
+            "slug": "ArticleTitle_003-1850",
+            "title": "ArticleTitle_003",
+            "description": "ArticleTitle_003 description...",
+            "body": "ArticleTitle_003_body...",
+            "tagList": [],
+            "createdAt": "2022-05-26T12:30:30.642Z",
+            "updatedAt": "2022-05-26T12:30:30.642Z",
+            "favorited": true,
+            "favoritesCount": 1,
+            "author": {
+                "username": "artem",
+                "bio": "knsdsadsdsadas",
+                "image": "knsdsadsdsadas",
+                "following": false
+            }
+        },
+        {
+            "slug": "ArticleTitle_002-1850",
+            "title": "ArticleTitle_002",
+            "description": "ArticleTitle_001 description...",
+            "body": "ArticleTitle_002_body...",
+            "tagList": [],
+            "createdAt": "2022-05-26T12:29:02.019Z",
+            "updatedAt": "2022-05-26T12:29:02.019Z",
+            "favorited": true,
+            "favoritesCount": 5,
+            "author": {
+                "username": "artem",
+                "bio": "knsdsadsdsadas",
+                "image": "knsdsadsdsadas",
+                "following": false
+            }
+        }  
+    ],
+    "articlesCount": 10
+}
