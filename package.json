@@ -20,7 +20,7 @@
     "cy:run_chromebrowser": "npm run cy:run_spec -- --browser chrome",
     "cy:run_firefoxbrowser": "npm run cy:run_spec -- --browser firefox",
     "cy:run_edgerowser": "npm run cy:run_spec -- --browser edge",
-    "cy:run_electronbrowser": "npm run cy:run_spec -- --browser electron --headless",
+    "cy:run_electronbrowser": "npm run cy:run_spec -- --browser electron",
     "cy:run_allbrowsers": "npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser edge & npm run cy:run_spec -- --browser electron"
   },
   "pre-commit": [
